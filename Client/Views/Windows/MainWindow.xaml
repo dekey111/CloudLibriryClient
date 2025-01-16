@@ -1,0 +1,91 @@
+﻿<Window x:Class="Client.Views.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.Views.Windows"
+        mc:Ignorable="d" Icon="/Resource/Logo.png" WindowStartupLocation="CenterScreen"
+        Title="CloudLibrary" Height="700" Width="1200"
+        MinHeight="650" MinWidth="1150">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*" />
+            <RowDefinition Height="4*" MaxHeight="100"/>
+            <RowDefinition Height="4*" MaxHeight="100"/>
+            <RowDefinition Height="4*" MaxHeight="100"/>
+            <RowDefinition Height="4*" MaxHeight="100"/>
+            <RowDefinition MaxHeight="35" MinHeight="35"/>
+            <RowDefinition Height="4*" MaxHeight="100"/>
+            <RowDefinition Height="7*" />
+            <RowDefinition Height="4*" MaxHeight="100"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*" MaxWidth="400"/>
+            <ColumnDefinition Width="33*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.RowSpan="10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <!-- Основной цвет (центр) -->
+                    <GradientStop Color="#FF2D48CD" Offset="0.2"/>
+                    <!-- Второй цвет (слева) -->
+                    <GradientStop Color="#FF2D3ECD" Offset="0"/>
+                    <!-- Основной цвет (центр) -->
+                    <GradientStop Color="#FF2D48CD" Offset="0.8"/>
+                    <!-- Второй цвет (справа) -->
+                    <GradientStop Color="#FF2D3ECD" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button ToolTip="/Resource/IconWhite.png" Style="{StaticResource ButtonMenu}"
+                IsEnabled="False"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Cloud" Foreground="White"/>
+                <TextBlock Text="Library" FontWeight="Bold" Foreground="White"/>
+            </StackPanel>
+        </StackPanel>
+
+
+
+        <Button Grid.Row="1" Margin="10" Style="{StaticResource ButtonMenu}"
+                Tag="Книги" ToolTip="/Resource/Book.png"/>
+
+        <Button Grid.Row="2" Margin="10" Style="{StaticResource ButtonMenu}"
+                Tag="Авторы" ToolTip="/Resource/Autor.png"/>
+
+        <Button Grid.Row="3" Margin="10" Style="{StaticResource ButtonMenu}"
+                Tag="Издатели" ToolTip="/Resource/Publisher.png"/>
+
+        <Button Grid.Row="4" Margin="10" Style="{StaticResource ButtonMenu}"
+                Tag="Читательские талоны" ToolTip="/Resource/Tickets.png"/>
+
+        <Line X1="0" Y1="0" X2="1" Y2="0" Grid.Row="5"
+              Stretch="Fill" Stroke="White" StrokeThickness=".3"/>
+
+        <Button Grid.Row="6" Margin="10" Style="{StaticResource ButtonMenu}"
+                Tag="Уведомления" ToolTip="/Resource/Notif.png"/>
+
+        <Button Grid.Row="8" Margin="10" Style="{StaticResource ButtonMenu}"
+                Tag="Илья Шадрин" ToolTip="/Resource/User.png"/>
+
+        <Button Grid.Row="8" HorizontalAlignment="Right" Margin="18" Background="Transparent"
+                BorderBrush="{x:Null}" Style="{StaticResource ExitButton}"
+                Command="{Binding ExitCommand}"/>
+
+
+
+        <Frame Grid.Column="1" Grid.RowSpan="10">
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFE2E2E2"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
+    </Grid>
+</Window>
