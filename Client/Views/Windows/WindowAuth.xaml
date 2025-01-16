@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Client.Views.Windows"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Авторизация" Height="550" Width="800" Background="WhiteSmoke"
-        Icon="/Resource/icon.png">
+        Icon="/Resource/IconBlue.png">
 
     <Border Grid.Row="1" Grid.Column="1" Padding="10"
                 Background="White" CornerRadius="25" Margin="60 50">
@@ -43,13 +43,32 @@
                      Grid.ColumnSpan="2" Margin="10"
                      Text="{Binding Login}"/>
 
+            <!--Невидимый пароль-->
+            <PasswordBox Grid.Row="3" Tag="Введите пароль" 
+                         Grid.ColumnSpan="2" Margin="10"
+                         PasswordChanged="PasswordBox_PasswordChanged"
+                         Visibility="{Binding VisiblePass}"/>
+
+            <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource PassVisible}"
+                    Visibility="{Binding VisiblePass}" Command="{Binding ChangeVisibilityPassword}"/>
+            <!--Невидимый пароль-->
+
+
+            <!--Видимый пароль-->
             <TextBox Grid.Row="3" Tag="Введите пароль" 
                      Grid.ColumnSpan="2" Margin="10"
-                     Text="{Binding Password}"/>
+                     Text="{Binding Password}"
+                     Visibility="{Binding HiddenPass}"/>
+
+            <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource PassHidden}"
+                    Visibility="{Binding HiddenPass}" Command="{Binding ChangeVisibilityPassword}"/>
+
+            <!--Видимый пароль-->
 
             <CheckBox Grid.Row="4" HorizontalAlignment="Left"
                       VerticalAlignment="Center" Content="Запонить меня"
-                      Margin="10,0,0,0" Height="28" Width="171" />
+                      Margin="10" VerticalContentAlignment="Center"
+                      IsChecked="{Binding SaveUser}"/>
 
             <Button Grid.Row="4" Content="Войти" Grid.Column="1" Margin="12 20"
                     Command="{Binding AuthCommand}"/>
